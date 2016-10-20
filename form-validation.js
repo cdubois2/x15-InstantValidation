@@ -1,15 +1,20 @@
 
-function validate()
+function register()
 {
-  //Grab the user's input and store in variables
   var userEntered = document.getElementById("user").value;
   var passEntered = document.getElementById("pass").value;
+  alert(userEntered);
+  alert(passEntered);
+}
 
-  //validate user green/red
-
+function validateUsername() 
+{
+  var passEntered = document.getElementById("pass").value;
+  var userEntered = document.getElementById("user").value;
   if(userEntered.length > 6)
   {
     document.getElementById("usernameGroup").classList.add("has-success");
+    document.getElementById("usernameGroup").classList.remove("has-error");
   }
   if(userEntered.length < 6)
   {
@@ -17,6 +22,7 @@ function validate()
     document.getElementById("usernameError").classList.remove("hidden-message");
     document.getElementById("usernameError").classList.add("shown-message");  
     document.getElementById("usernameGroup").classList.add("has-error");
+    document.getElementById("usernameGroup").classList.remove("has-success");
   }
   if(userEntered.indexOf(' ') >= 0)
   {
@@ -24,12 +30,19 @@ function validate()
     document.getElementById("usernameError").classList.remove("hidden-message");
     document.getElementById("usernameError").classList.add("shown-message");  
     document.getElementById("usernameGroup").classList.add("has-error");
-    console.log("has space");
+    document.getElementById("usernameGroup").classList.remove("has-success"); 
   }
-  //Show message that there is an error with the password...
+}
+
+function validatePassword() 
+{
+  var passEntered = document.getElementById("pass").value;
+  var userEntered = document.getElementById("user").value;
   if(passEntered != "password")
   {
     document.getElementById("passwordGroup").classList.add("has-success");
+    document.getElementById("passwordGroup").classList.remove("has-error");
+    console.log("dsadasd");
   }
   if(passEntered == "password")
   {
@@ -37,6 +50,7 @@ function validate()
     document.getElementById("passwordError").classList.remove("hidden-message");
     document.getElementById("passwordError").classList.add("shown-message");
     document.getElementById("passwordGroup").classList.add("has-error");
+    document.getElementById("passwordGroup").classList.remove("has-success");
   }
   if(passEntered == "Password")
   {
@@ -44,6 +58,7 @@ function validate()
     document.getElementById("passwordError").classList.remove("hidden-message");
     document.getElementById("passwordError").classList.add("shown-message");
     document.getElementById("passwordGroup").classList.add("has-error");
+    document.getElementById("passwordGroup").classList.remove("has-success");
   }
   if(passEntered == userEntered)
   {
@@ -51,6 +66,7 @@ function validate()
     document.getElementById("passwordError").classList.remove("hidden-message");
     document.getElementById("passwordError").classList.add("shown-message");
     document.getElementById("passwordGroup").classList.add("has-error");
+    document.getElementById("passwordGroup").classList.remove("has-success");
   }
 
   if(passEntered.length < 6 || passEntered.length > 20)
@@ -59,6 +75,7 @@ function validate()
     document.getElementById("passwordError").classList.remove("hidden-message");
     document.getElementById("passwordError").classList.add("shown-message");
     document.getElementById("passwordGroup").classList.add("has-error");
-    console.log("has < 6 > 20");
+    document.getElementById("passwordGroup").classList.remove("has-success");
   }    
 }
+
